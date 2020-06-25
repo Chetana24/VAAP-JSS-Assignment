@@ -1,0 +1,75 @@
+<html>
+<head>
+	<title> Form Validation </title>
+	<link rel="stylesheet" href="style.css">
+	<script>
+		function validate(){
+			var Username = document.getElementById("Username");
+			var Email = document.getElementById("Email");
+			var Password = document.getElementById("Password");
+			var Confrim_Password = document.getElementById("Confrim_Password");
+			var mail_format = /^\w+([\.-]?\w+)*@\w+([\.-]?w+)*(\.\w{2,3})+$/;
+			var return_val = true;
+
+			if(Username.value.trim() == "" || Email.value.trim() == "" ||Password.value.trim() == "" || Confrim_Password.value.trim() == ""){
+				alert("Please Fill all the Fields.");
+				return_val = false;
+
+			}
+			else{
+					if( Password.value.length < 6){
+						alert("Password must have more than 6 characters.");
+						return_val = false;
+					}
+					else{
+
+						if(Password.value!=Confrim_Password.value){
+							alert("Passwords do not match!");
+							return_val = false;
+						}
+					}
+				}
+
+			if(return_val){
+				location.replace("Login.html");
+			}
+		
+		}		
+	</script>
+</head>
+<body>
+	<form onsubmit="return validate()">
+		<div class= "box">
+			<div class="box1" style="float:left; margin-left:30px;">
+				<i><p class="p1" style="margin-top:220px;">Already have an Account? Log In now! </p></i>
+        		<br>
+        		<button class="b2" type="button"><a href="Login.html"> <b> LOGIN </b> </a></button>
+        	</div>
+
+    		<div class="vl"></div>
+
+    		<div class="box1" style="float:left; margin-left:50px;">
+        		<br>
+        		<p> SIGN UP </p> <br>
+        		<label for="USN"> USERNAME </label><br>
+				<input type="text" id="Username" placeholder="Enter Username" > 
+				
+				<br>
+				<label for="Email"> EMAIL </label> <br>				
+				<input type="email" id="Email" placeholder="Enter Email-Id" >
+				
+				<br>
+				<label for="Password"> PASSWORD </label> <br> 	
+				<input type="password" id="Password" placeholder="Enter Password" >
+				
+				<br>
+				<label for="Password"> CONFIRM PASSWORD </label> <br> 	
+				<input type="password" id="Confrim_Password" placeholder="Re-Enter Password" >
+				
+				<br>
+				<button type="submit" name="submit"><b> SIGN UP </b> </button>
+    		</div>
+		</div>
+	</form>
+</body>
+</html>

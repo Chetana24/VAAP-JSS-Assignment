@@ -1,0 +1,46 @@
+<html>
+<head>
+	<title> Welcome! </title>
+	<link rel="stylesheet" href="Forgot.css">
+	<script>
+		function validate(){
+			var Email = document.getElementById("Email");
+			var mail_format = /^\w+([\.-]?\w+)*@\w+([\.-]?w+)*(\.\w{2,3})+$/;
+
+			if(Email.value.trim() == ""){
+				alert("Please Fill in the Field.");
+				return false;
+
+			}
+			else{
+				true;
+				if(Email.value.trim().match(mail_format)){
+					alert("The Username will be sent via a recovery mail to your account.");
+					return true;
+				}
+				else{
+					alert("Email Address is Invalid!");
+					return false;
+				}
+				
+			}
+			
+		}	
+	</script>
+</head>
+<body>
+	<form onsubmit="return validate()" action="Login.html">
+	<center>
+		<h1 style="padding-top:2%"> Forgot Username? </h1>
+		<div class="box">
+		<br>
+        	<p> Let's get you into your account!</p> <br>
+        	<label for="Email"> EMAIL-ID </label> <br>				
+			<input type="text" id="Email" placeholder="Enter Email-Id" >
+			<br>
+			<button type="submit" name="submit"> <b> SUBMIT </b> </button></b>
+    	</div>
+</center>
+</form>
+</body>
+</html>
